@@ -1,12 +1,25 @@
 import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
+import { nanoid } from "nanoid";
+import { MdDeleteForever } from "react-icons/md";
 import "./App.css";
 
 function App() {
+  const [notes, setNotes] = useState([
+    {
+      id: nanoid(),
+      text: "This is my first note!",
+      date: "26/05/2025",
+    },
+    {
+      id: nanoid(),
+      text: "This is my second note!",
+      date: "26/05/2025",
+    },
+  ]);
+
   return (
     <>
-      <h2>React Note app with local Storage</h2>
+      <MdDeleteForever className="delete-icon" size="1.7em" />
     </>
   );
 }
