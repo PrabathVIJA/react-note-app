@@ -6,7 +6,7 @@ import "./App.css";
 function App() {
   return (
     <>
-      <h2>Note app</h2>
+      <h2>React Note app with local Storage</h2>
     </>
   );
 }
