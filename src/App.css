@@ -1,42 +1,76 @@
+/* Add this at the top */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  overflow: hidden; /* Prevent scrollbars */
+}
+
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+  height: 100%;
+  width: 100%;
   text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0; /* Remove padding to avoid overflow */
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.container {
+  height: 100%;
+  width: 100%;
+  background-color: burlywood;
+  display: flex;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.note-container {
+  height: 200px;
+  width: 250px;
+  background-color: yellowgreen;
+  margin-top: 15px;
+  margin-right: 50px;
+  margin-left: 50px;
+  border-radius: 2px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  color: black;
+  padding: 10px;
+}
+.note-footer {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  padding: 10px;
+}
+.note-new {
+  height: 200px;
+  width: 250px;
+  background-color: cornflowerblue;
+  margin-top: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+textarea {
+  resize: none;
 }
 
-.card {
-  padding: 2em;
+textarea:focus {
+  outline: none;
+
+  border: none; /* Optional, use only if you don't want a border */
 }
 
-.read-the-docs {
-  color: #888;
+.note-footer button:focus {
+  background-color: blue;
 }

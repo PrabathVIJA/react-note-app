@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { nanoid } from "nanoid";
-import { MdDeleteForever } from "react-icons/md";
+
 import "./App.css";
+import NotesList from "./assets/components/NotesList";
 
 function App() {
   const [notes, setNotes] = useState([
@@ -19,7 +20,9 @@ function App() {
 
   return (
     <>
-      <MdDeleteForever className="delete-icon" size="1.7em" />
+      <div className="container">
+        <NotesList notes={notes} />
+      </div>
     </>
   );
 }
