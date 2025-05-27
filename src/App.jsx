@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { nanoid } from "nanoid";
 import Search from "./assets/components/Search.jsx";
 
@@ -19,7 +19,19 @@ function App() {
     },
   ]);
 
-  const [searchText, setSearchText] = useState(" ");
+  const [searchText, setSearchText] = useState("");
+
+  useEffect(() => {
+    const savedNotes = JSON.parse(localStorage.getItem("react-notes-app-data"));
+
+    if (savedNotes) {
+      setNotes(savedNotes);
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("react-notes-app-data", JSON.stringify(notes));
+  }, [notes]);
 
   function handleAddNote(text) {
     const date = new Date();
