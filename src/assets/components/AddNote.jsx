@@ -1,10 +1,25 @@
 import { useState } from "react";
-function AddNote() {
+function AddNote({ handleAddNote }) {
   const [noteText, setNoteText] = useState("");
+  const characterLimit = 100;
 
   function handleChange(e) {
-    setNoteText(e.target.value);
+    if (characterLimit - e.target.value.length >= 0) {
+      setNoteText(e.target.value);
+      return;
+    }
+    console.log(e.target.value.length);
   }
+
+  function handleSave() {
+    if (noteText.trim().length > 0) {
+      handleAddNote(noteText);
+      setNoteText("");
+    } else {
+      alert("Please enter at least one character");
+    }
+  }
+
   return (
     <div className="note-new">
       <textarea
@@ -16,9 +31,9 @@ function AddNote() {
       ></textarea>
       <div className="note-footer">
         <p>
-          <small>100</small>
+          <small>{characterLimit - noteText.length} characters remaining</small>
         </p>
-        <button>Save</button>
+        <button onClick={handleSave}>Save</button>
       </div>
     </div>
   );
